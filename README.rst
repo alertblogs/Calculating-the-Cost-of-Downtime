@@ -1,40 +1,65 @@
-AlertOps Expert Guidance
+Calculating the Cost of Downtime
 ========
+Software vendors and analysts put the cost of downtime in the many thousands of dollars per minute on average.
 
- 
-The phrase ‘stakeholder management” assumes that stakeholders are truly informed by alerts. However, managers can only send communications out, they cannot force people to address them. To ensure your stakeholders are engaged during an incident, it is vital to set up a defined communication process. Yet, a recent Red Canary report1 found that 43% of surveyed participants lack readiness to notify the public and/or its customers in the event of a security breach. Without a clear strategy in place, communication can get lost in the chaos leaving stakeholders uninformed.
+Those numbers can be scary indeed; for example, Gartner quotes $5,400 per minuteas the cost borne by a medium to large-sized retailer.
 
-Not One Size Fits All
-=====
-Sending the same notification to all your stakeholders can cause a lot of confusion and create unwanted alert noise. Some users shouldn’t receive technical information, others require all the nitty gritty details. Every alert should be tailored based on a user’s expertise or role.
-Means of Communication
+Your company, however, is most likely not identical to the “typical” company on which the numbers are based. In fact, the cost of an outage can vary widely depending on a variety of factors specific to your organization.
 
-Strategize mode(s) of communication to be used when communicating with stakeholders. Understand which tools engage stakeholders the most. It is also vital to unify these channels for streamlined points of contact.
+In this article, we explain how you can calculate the cost of an outage for your particular organization. My goal is not to convince you that outages don’t actually cost that much – they certainly can, as you’ll see – but instead to help IT teams and managers determine the actual cost of an outage instead of relying on general calculations that are based on arbitrary circumstances.
 
-Automate Processes
+Why calculate the per-minute cost?
 ====
-Engaging stakeholders can take up a lot of time. Automate stakeholder communications to ensure efficient delivery of insightful information. Implement AlertOps so you can focus on getting ahead of incidents while knowing your alerts reach the right person, through the right channel, every time. Sending regular updates to stakeholders during an incident is vital to keep them calm. Automation addresses your stakeholders’ needs while ensuring they remain aligned with minimal manual work.
+Engineering, DevOps and SRE teams that feel they are underfunded are challenged to justify the value of critical technology services. They must be able to demonstrate to their business teams a return on investment.  Being able to calculate he per-minute cost for outages in an organization creates a compelling case in raw numbers for why certain systems need to be maintained, and how financial investment is required.
 
-Clarity
+It is not enough to know a single number for the entire company  unless, of course, you are a small shop with only one application. Ideally, every service, whether or not it’s customer facing, should have at least a rough estimate on what it costs the organization per minute when it isn’t operational.
+
+Calculating the per-minute cost
 ====
-A highly flexible incident management and alert automation tool, AlertOps is powered by an open API, with the ability to connect with practically any communication tool. Once plugged in, AlertOps delivers alerts with relevant incident information so that stakeholders can stay in the loop from detection to resolution.
-Any Way You Want It…
+The average per-minute cost of an outage is not that complicated to calculate, but it does require a view outside of a pre-technology lens. The formula is:
 
-Since you use multiple channels for communication, you need an alerting system that sends alerts through multiple communication channels. AlertOps delivers alerts any way you want. Receive alerts by phone, SMS, or email. Even integrate with all your favorite chat tools, such as Slack and Microsoft Teams, so that users receive alerts where they are most likely to see them.
+Outage Cost = Potential Revenue + Lost Productivity Costs + Recovery Costs
 
-Insightful Notifications
-====
-Alerts are only useful if they contain information relevant to the user. With AlertOps, customized messages make it easy for stakeholders to quickly understand an incident. They can also receive updates throughout the course of handling the incident. Make sure emails are actionable as well. Send emails in rich text and HTML to include graphs, images, custom links, runbook links or links to a conference bridge for any alert. The solution even offers voice messages with incident details from the embedded phone system.
+Let’s go through the three key variables needed to calculate the outage cost.
+
+Potential revenue is the top line number before any deductions for overhead, such as  inventory costs. This should be based on typical weekly or monthly revenue. It gives a reliable number that can be used regardless of the time of day of an outage.  If the service is only available a few hours per day or a few days per week, however, potential revenue figures should be calculated and tiered to reflect typical in-service periods.
+
+The next factor is lost productivity costs, which are associated with normal operations that are idle, with nothing to do as a result of the outage. For example,  the contact center staff when the phone system is down, or inventory pickers when the order system is down, or the 100 nodes running on AWS when the application crashes.
+
+The third factor is all the costs associated with recovering the service. In some organizations these costs are  minimized if their infrastructure and staffing levels are such that people are already working at 2 a.m. in the operations center and extra capacity is available for this exact purpose. Other recovery costs, however, could include replacement parts, consultants, overtime hours, and even discretionary items like mileage for drives to offsite storage facilities.
+
+There is a potential for a fourth factor which is related to brand reputation and customer goodwill. Unless customer satisfaction metrics are in place, this can be difficult to quantify and translated into terms that  stand up to the scrutiny of the finance department.
+
+An example calculation would be for a small SaaS firm that does $5,000,000 per year in sales.
+
+    Potential Revenue:
+
+$5,000,000 / 365 days / 24 hours / 60 minutes = $9.51
+
+    Lost Productivity Costs:
+
+50 D4s v4 Azure hosts (@ $0.4813 per hour) / 60 minutes = $0.40
+
+4 Azure SQL Server instances (@ $2.5824 per hour) / 60 minutes = $0.17
+
+10 Contact Center agents (@ $15/hour) / 60 minutes = $2.50
+
+    Recovery Costs:
+
+Azure DevOps consultant ($200 per hour) / 60 minutes = $3.33
+
+Total per minute: $15.91
 
 Conclusion
 ====
-Effective incident response requires, not only sending the right information to the right people, but also ensuring those stakeholders are engaged and truly informed. It is vital to have a plan in place for ensuring that each type of stakeholder receives only the information he or she needs. AlertOps ensures that your alerts reach the right person, through the right channel, every time.
+In this article we intentionally used a small firm as an example in order to show that every minute counts during an outage, and it does not take long to justify the cost of tools that will reduce the mean time to recovery. Those tools include centralized alerting (every minute in the example pays for a team member’s one-month subscription on AlertOps), incident management, and intelligent monitoring solutions, which can also detect trends before an outage impacts anyone.
 
-1 Red Canary 2021 Threat Detection Report
+Everyone in an organization has the same ultimate goal: to spend the organization’s money as wisely as possible to ensure a good customer experience through stable and feature-rich service offerings. Knowing the per-minute cost of a service outage is a valuable universal tool to assist with organizational planning and allocation of resources to achieve that ultimate goal.
+
 
 source:
 ====
-https://alertops.com/red-canary-says-43-lack-readiness-to-notify-customers-of-a-security-breach/
+https://alertops.com/cost-of-downtime/
 
 Read more:
 ====
